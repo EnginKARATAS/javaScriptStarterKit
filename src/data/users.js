@@ -34,5 +34,14 @@ export const users = [
         city:"uludag",
         creditCartNumber:"5522333",
         type:"customer"     
+    },
+    {
+        id:124,
+        firstName:"keko",
+        lastName:"abdulmuddalib",
+        age:45,
+        city:"muş",
+        creditCartNumber:"1239105",
+        type:"employi"     
     }
 ]
