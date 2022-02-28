@@ -12,19 +12,40 @@ export class UserService{
     load(){
         for (const user of users) {
             if (user.type == "customer") {
-                console.log(`${user.firstName} ${user.lastName} add to customer array`)
-                this.customers.push(user)
+                if (!this.checkCustomerValidityForErrors(user)) {
+                    console.log(`${user.firstName} ${user.lastName} add to customer array`)
+                    this.customers.push(user)
+                }
             }
             else if (user.type == "employee"){
                 console.log(`${user.firstName} ${user.lastName} add to employee array`)
                 this.employees.push(user)
             }
             else{
-                console.log(`${user.firstName} ${user.lastName} add but type have errors`)
+                console.log(`${user.firstName} ${user.lastName} add but type errors`)
                 this.errors.push(new DataError("user type error", user))
             }
         }
     }
+
+    checkCustomerValidityForErrors(user){
+        let requiredFields = "id firstName lastName age city".split(" ");
+        let hasErrors = false;
+        for (const iter of requiredFields) {
+            if (!user[iter]) {
+                hasErrors = true;
+                this.errors.push(DataError("object user doesn`t providing credentials", user))
+            }
+        }
+        if (Number.isNaN(Number.parseInt(user.age))) {
+            hasErrors = true
+            this.errors.push(new DataError("Customer user age is not a number", user))
+        }
+        return hasErrors;
+    }
+
+
+
     add(user){
         console.log("eklendi" + user.firstName);
         this.users.push(user);

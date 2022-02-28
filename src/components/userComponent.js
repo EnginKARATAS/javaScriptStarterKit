@@ -12,11 +12,13 @@ userService.add(user1)
 // console.log(userService.list()) 
 // console.log(userService.getById(1)) 
 
-console.log("----------------")
+console.log("----------aaa------")
 
 userService.load();
 console.log(userService.customers)
+console.log("----------aaa------")
 console.log(userService.employees) 
+console.log("----------aaa------")
 console.log(userService.errors)
 
 
