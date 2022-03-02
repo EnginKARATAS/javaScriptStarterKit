@@ -21,7 +21,7 @@ export const users = [
         id:122,
         firstName:"ayten",
         lastName:"bas",
-        age:25,
+        age:"asd",
         city:"artvin",
         creditCartNumber:"123456",
         type:"customer"     
